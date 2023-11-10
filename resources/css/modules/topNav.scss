@@ -1,0 +1,69 @@
+
+.top-nav{
+    @apply bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 md:p-3;
+    .left-menu-btn{
+        @apply inline-flex items-center p-2  ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600;
+    }
+    .left-mini-menu{
+        @apply hidden sm:inline-flex items-center p-1 ml-3 text-sm text-gray-500 rounded-lg  hover:bg-gray-100 focus:outline-none ring-2 ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600;
+   svg{
+    &:nth-child(1){
+        @apply block;
+    }
+    &:nth-child(2){
+        @apply hidden;
+    }
+   }
+   &.hide{
+    svg{
+        &:nth-child(1){
+          
+            @apply hidden;
+        }
+        &:nth-child(2){
+            @apply block;
+        }
+       }
+   }
+    }
+    .right-menu-btn{
+        @apply inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600;
+    }
+   
+
+    .config-triger-btn{
+        @apply flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent;
+    }
+    .triger-avatar-btn {
+        @apply  flex justify-center items-center cursor-pointer border border-gray-300 rounded-full h-7 hover:bg-blue-600 hover:text-white dark:text-white;
+    }
+    ul.drop-down-content {
+        @apply overflow-hidden sm:w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+        .item {
+            @apply inline-flex items-center w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600  cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:text-blue-700 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white;
+
+            svg {
+                @apply w-4 h-4 fill-current;
+            }
+        }
+    }
+
+    .right-list{
+       @apply w-full md:block md:w-auto  p-4 sm:p-0; 
+       .menu-list{
+        @apply hidden sm:flex flex-col items-center font-medium md:p-0 mt-4 border border-gray-100 rounded-lg
+         bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800
+          md:dark:bg-gray-900 dark:border-gray-700;
+          >li{
+            @apply w-full sm:w-auto  sm:flex 
+          }
+       }
+
+       .menu-mobile-list{
+        @apply sm:hidden;
+        .item{
+            @apply flex items-center hover:bg-slate-100 text-lg py-1 border-t;
+        }
+       }
+    }
+}

@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family:Playfair_Display;
+    src: url(assets/font/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+  }
+
+  body{
+    font-family: Playfair_Display,Courier New,Courier,monospace;
+  }
+
+ul{
+    padding: 0;
+    margin: 0;
+  }
+@import './modules/index.scss';
+
+
+ 
+
+
+  .page-layout{
+    >aside{
+        @apply print:hidden w-52 transition-transform -translate-x-full sm:translate-x-0;
+    }
+    >nav{
+        @apply print:hidden sm:ml-52;
+    }
+    >main{
+        @apply  sm:ml-52 print:sm:ml-0;
+    }
+    &.open{
+        >aside{
+            @apply w-full transition-transform translate-x-0;
+            
+            .content{
+                @apply w-52;
+            }
+        }
+        >nav{
+            @apply sm:ml-0;
+        }
+        >main{
+            @apply sm:ml-0;
+        }  
+    }
+
+    &.mini{
+        >aside{
+            @apply w-14 bg-lime-600;
+           
+        }
+        >nav{
+          @apply sm:ml-14 ;  
+        }
+        >main{
+            @apply  sm:ml-14; 
+        }
+
+        
+       
+    }
+}
+
+
+.dropdown-menu{
+    .triger{
+        @apply flex items-center pl-2 pr-1 py-1 rounded-md border-2 border-stone-400 bg-stone-50 focus:shadow-lg focus:border-transparent focus:ring-2 focus:ring-rose-300;
+    }
+    ul{
+        @apply flex flex-col;
+        a,li{
+            @apply flex items-center cursor-pointer min-w-[100px] border-t border-l border-r p-1;
+            svg{
+                @apply h-5 w-5;
+            }
+        }
+    }
+}

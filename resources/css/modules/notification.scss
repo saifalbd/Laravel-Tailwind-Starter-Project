@@ -1,0 +1,14 @@
+.notification{
+    @apply p-4 min-w-[400px] overflow-auto;
+    max-height: calc(100vh - 100px);
+
+    .list{
+        .list-item{
+            @apply p-2 hover:bg-slate-200 border-b;
+            .toNow{
+                @apply text-sm font-thin text-blue-500;
+            }
+        }
+    }
+    
+}

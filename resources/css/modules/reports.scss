@@ -1,0 +1,85 @@
+@mixin bg(){
+    @apply bg-slate-100;
+}
+
+.reports{
+    .layout{
+        @apply font-mono  rounded-lg shadow-lg px-4 max-w-5xl mx-auto;
+
+        .top-part{
+            @apply grid grid-cols-2 p-4;
+            @include bg;
+            .left{
+                @apply flex items-start;
+                .avatar-box{
+                    @apply w-[80px]
+                }
+                .com-box{
+                    @apply ml-2;
+                    h2{
+                        @apply text-2xl font-bold;
+                    }
+                }
+            }
+            .right{
+                @apply text-2xl font-bold flex items-end justify-end flex-col;
+                .qr-box{
+                    @apply text-sm w-[80px] aspect-square border border-slate-500;
+                }
+
+            }
+        }
+        .sub-info{
+            @apply flex justify-center w-full font-semibold font-mono text-xl;
+            @include bg;
+          
+           
+        }
+
+        table{
+            @apply w-full;
+            thead{
+                tr{
+                    @include bg;
+
+                    th{
+                        &.blue{
+                        @apply bg-blue-400 text-white;
+                        }
+                        
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        @apply p-2 bg-slate-50 text-center;
+                        &:nth-child(odd){
+                            @include bg;
+                        }
+                        &:nth-child(n+4){
+                            @apply w-[150px] text-right;
+                        }
+                    }
+                }
+            }
+        }
+
+        .layout-foot{
+            @apply bg-slate-300 mt-4  relative grid grid-cols-2;
+            .left{
+                @apply relative h-[40px];
+                .arrow-box{
+                    @apply absolute left-0 top-0 right-0 bottom-0 bg-blue-400 flex justify-center items-center text-white;
+                    
+                    .inner{
+                        @apply absolute right-0 top-[6px] bottom-[6px] aspect-square bg-blue-400 transform rotate-45 translate-x-1/2 ;
+                    }
+                }
+            }
+            
+        }
+        
+    
+    }
+}

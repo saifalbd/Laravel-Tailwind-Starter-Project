@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Attachment;
+use App\Models\AttachmentCategory;
+use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -17,7 +20,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/dashboard';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -31,10 +34,16 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')
+                ->name('api.')
                 ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+
+        Route::model('attachment_category',AttachmentCategory::class);
+        Route::model('attachment',Attachment::class);
+        Route::model('user',User::class);
     }
 }

@@ -1,0 +1,23 @@
+.option-settings {
+    .form-group {
+        .input-group {
+            @apply relative w-full flex  border border-slate-600 focus:border-blue-600 p-0.5;
+            .prefix {
+                @apply whitespace-nowrap flex-1 relative  bg-slate-200 text-lg font-semibold  flex justify-end items-center px-2;
+            }
+            input {
+              
+                @apply py-0.5 flex-auto w-full border-none focus:border-none focus:outline-none focus:shadow-none focus:ring-0;
+            }
+
+            &.focused{
+                @apply border-blue-600 ring-2 ring-blue-200;
+            }
+
+            &.isInvalid{
+                @apply border-rose-600;
+            }
+            
+        }
+    }
+}

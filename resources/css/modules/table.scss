@@ -1,0 +1,77 @@
+.iq-table-box{
+    position: relative;
+    @apply mt-2 pb-[200px];
+    width: 100%;
+    overflow: auto;
+    .iq-table{
+        min-width: 100%;
+        th,td{
+            @apply text-center px-1 border-t border-l
+             border-gray-600 border-opacity-10
+              whitespace-nowrap dark:text-yellow-50;
+            &:last-child{
+                @apply border-r;
+            }
+
+            &.sticky-col{
+                position: sticky;
+                left: 0;
+                
+               
+            }
+
+        }
+        thead{
+          
+            tr{
+               th{
+                @apply p-2 bg-gray-200 dark:bg-slate-700 whitespace-nowrap;
+                &:nth-child(odd){
+                    @apply bg-gray-200 dark:bg-slate-700;
+                }
+                position: sticky;
+                top: 0;
+                z-index: 3;
+                &.sticky-col{
+                    z-index: 4;
+                    &.bg{
+                        @apply bg-lime-400 text-black dark:bg-gray-800 dark:text-white;
+                    }
+                }
+               } 
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    @apply bg-white dark:bg-slate-700;
+                    &.sticky-col{
+                        z-index: 2;
+                        &.bg{
+                            @apply bg-lime-100 text-black dark:bg-gray-600 dark:text-white;
+                        }
+                    }
+                }
+                &:hover{
+                    td,td.sticky-col.bg{
+                        @apply bg-gray-100 dark:bg-slate-500;
+                    }
+                }
+                
+            }
+        }
+        tfoot{
+            tr{
+                th{
+                    @apply p-1 bg-gray-200;
+                    &.sticky-col{
+                        z-index: 2;
+                        &.bg{
+                            @apply bg-lime-400 text-black dark:bg-gray-800 dark:text-white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.course-create{
+    ol{
+        @apply mt-4 px-4 py-32 md:py-0 md:px-0 flex justify-around md:items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base;
+        li{
+            @apply flex items-center font-mono text-xl transform rotate-45 w-[20%] md:w-auto md:rotate-0;
+            svg{
+                @apply hidden w-3.5 h-3.5 sm:w-5 sm:h-5 mr-2.5;
+            }
+            .number{
+                @apply mr-2;
+            }
+            &.line{
+                @apply md:w-full ;
+                
+                // &::after{
+                //     content: '';
+                //     @apply w-full h-1 border-b-2 border-fuchsia-900 border-l hidden sm:inline-block mx-6 xl:mx-10 dark:border-gray-700;
+                // }
+                >span{
+                    @apply flex items-center flex-row flex-nowrap whitespace-nowrap transform;
+                    &::after{
+                   
+                        @apply  md:content-['/']  mx-2 text-gray-200 dark:text-gray-500
+                    }
+                }
+            }
+            &.active{
+                @apply text-blue-600 dark:text-blue-500;
+                .number{
+                    @apply hidden;
+                }
+                svg{
+                    @apply block;
+                }
+            }
+        }
+    }
+    .confirmation{
+        .row{
+            @apply grid grid-cols-[200px_auto] border-t;
+            &:last-child{
+                @apply border-b;
+            }
+            li{
+                @apply p-1 flex items-center;
+                &:first-child,&.title{
+                    @apply text-lg font-semibold font-mono;
+                }
+            }
+            &:hover{
+                @apply bg-slate-100;
+            }
+        }
+    }
+}

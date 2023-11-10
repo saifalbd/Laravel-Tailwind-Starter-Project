@@ -1,0 +1,38 @@
+.assined-course{
+    @apply dark:bg-gray-900;
+
+    label{
+        @apply text-left;
+    }
+    
+    .info-list{
+        @apply grid grid-cols-[150px_auto] border-l border-t border-r border-gray-600;
+        &:last-child{
+            @apply border-b;
+        }
+        li{
+            @apply p-2 text-sm;
+
+            &:first-child{
+                text-align: right;
+                @apply bg-gray-100;
+            }
+            &:last-child{
+                @apply bg-white text-black;
+            }
+
+            &.title{
+                @apply col-span-2 text-center text-fuchsia-900 text-xl;
+            }
+        }
+        &.name-ul{
+            li{
+                &:first-child,&:last-child{
+                    @apply text-fuchsia-700 text-lg;
+                }
+            }
+        }
+        
+    }
+  
+}

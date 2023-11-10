@@ -1,0 +1,103 @@
+.alert-box{
+    @apply relative z-50 w-auto;
+    .alert{
+        @apply relative grid grid-cols-[70px_auto_50px] border-2 z-50;
+        .left-box{
+            @apply flex justify-center items-center ;
+           
+            svg{
+                @apply h-10 w-10 ; 
+            }
+        }
+    
+        .right-box{
+            @apply flex justify-center items-center text-red-500;
+            svg{
+                @apply h-5 w-5;
+            }
+            button{
+                @apply cursor-pointer relative inline-flex items-center justify-start px-2 py-2 text-white overflow-hidden font-medium transition-all bg-red-500 rounded-xl focus:ring-2 focus:ring-rose-200;
+                span{
+                    @apply ml-2 text-white hidden;
+                }
+            }
+        }
+        .middle-box{
+            @apply min-h-[100px]  p-4;
+            .title{
+                @apply  text-xl font-semibold font-mono;
+            }
+        }
+    
+       
+    }
+
+    &.success{
+        .alert{
+            @apply border-green-600 bg-green-100;
+            .left-box{
+                @apply text-green-400;
+            }
+            .middle-box{
+                .title{
+                    @apply text-green-700;
+                }
+            }
+        }
+       
+    }
+    &.warn{
+        .alert{
+            @apply border-yellow-400 bg-yellow-100;
+            .left-box{
+                @apply text-yellow-400;
+            }
+            .middle-box{
+                .title{
+                    @apply text-yellow-800;
+                }
+            }
+        }  
+    }
+    &.error{
+        .alert{
+            @apply border-rose-500 bg-rose-100;
+            .left-box{
+                @apply text-red-400;
+            }
+            .middle-box{
+                .title{
+                    @apply text-red-700;
+                }
+            }
+        }
+    }
+
+    &.box{
+        .alert{
+            @apply max-w-[450px] min-w-[400px] grid-cols-1 p-4;
+        .left-box{
+            svg{
+                @apply w-20 h-20;
+            }
+        }
+        .right-box{
+            @apply flex justify-end;
+            button{
+                @apply px-4 py-1.5;
+
+                span{
+                    @apply flex justify-center items-center;
+                }
+            }
+
+        }
+        }
+    }
+    &.center{
+        @apply fixed left-0 top-0 bottom-0 right-0 z-50 flex justify-center items-center;
+    }
+    &.right{
+        @apply fixed top-1 right-1 z-50;  
+    }
+}

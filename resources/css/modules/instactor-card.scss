@@ -1,0 +1,49 @@
+.instactor-card{
+    @apply border border-gray-500 flex flex-col justify-between bg-white dark:bg-slate-700 rounded-md overflow-hidden shadow-lg text-black;
+    header{
+        @apply grid grid-cols-[auto_auto_auto] py-1 items-center border-b border-gray-500 dark:text-white;
+        .avatar{
+            @apply h-[60px] w-[60px]
+        }
+        .dropdown-btn{
+         @apply text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-2.5  dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700;
+        }
+    }
+    .card-content{
+        @apply p-2 ;
+        .box{
+            @apply bg-white dark:bg-slate-900 text-white border border-gray-600 rounded-md rounded-l-none overflow-hidden border-l-4 border-l-red-500;
+           
+            &.primary{
+                ul{
+                    @apply grid grid-cols-[130px_auto] border-b border-gray-600;
+                    &:last-child{
+                        @apply border-none;
+                    }
+                    li{
+                        @apply  px-2 py-1;
+                        &:first-child{
+                            @apply bg-gray-200 dark:bg-slate-600 text-right;
+                        }
+                    }
+                }
+            }
+
+            &:not(.primary){
+                ul{
+                    li{
+                        @apply pl-2;
+                    }
+                }
+            }
+           
+        }
+        
+    }
+    footer{
+        @apply flex justify-center border-t border-gray-500 py-2;
+        a:not([href]) {
+          opacity: 0.50;
+        }
+    }
+}

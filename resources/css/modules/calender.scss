@@ -1,0 +1,212 @@
+
+
+@mixin eventTheme {
+    &-primary{ @apply bg-blue-300 text-white;
+        label{@apply text-white;}
+    }
+    &-info{ @apply bg-green-400 text-white;
+        label{@apply text-white;}
+    }
+    &-success{ @apply bg-purple-800 text-white;
+        label{@apply text-white;}
+    }
+    &-warning{ @apply bg-yellow-600 text-black;
+        label{@apply text-black;}}
+    &-error{ @apply bg-red-600 text-black; label{@apply text-black;}}
+}
+.dp__action_button.dp__action_select{
+@apply bg-blue-500;
+}
+.calender-page{
+    background-color: white;
+    position: relative;
+
+    .theme{
+        @include eventTheme();
+    }
+    
+    .left-box{
+        @apply hidden;
+    }
+    .calender{
+        @apply  bg-white;
+       
+        .top{
+            @apply flex items-center justify-between py-2 px-6;
+        }
+        .middle{
+            @apply grid grid-cols-7 p-1;
+            .day-name{
+                >div{
+                    @apply text-gray-600 text-sm uppercase tracking-wide font-bold text-center;
+                }
+            }
+            .day-date{
+                @apply aspect-1 border-l border-t border-gray-300 flex justify-center items-center;
+                &:nth-child(n+43){
+                    @apply border-b;
+                }
+                &:nth-child(7n+7){
+                    @apply border-r;
+                }
+
+                .number{
+                    @apply border border-purple-700 h-10 aspect-1 rounded-full flex justify-center items-center font-semibold;
+                    
+                    &.off{
+                        @apply opacity-50 select-none;
+                    }
+                    &.isToday{
+                        @apply bg-blue-600 text-white;
+                    }
+                }
+                &.has-event{
+                    @apply flex-col justify-between p-1;
+                }
+                .event-list{
+                    .for-sm{
+                        @apply hidden;
+                    }
+                }
+                &:not(.off){
+                    &:hover{
+                        @apply bg-lime-100;
+                    }
+                }
+            }
+        }
+    
+        .bottom{
+            @apply flex justify-end py-2 px-2;
+            .add-event-btn{
+                @apply border border-gray-500 bg-blue-600 text-white px-4 py-2;
+            }
+        }
+    }
+    &.small{
+        @apply grid grid-cols-2;
+        .left-box{
+            @apply block;
+        }
+        .calender{
+            .middle{
+                .day-date{
+                    .number{
+                        @apply h-7;
+                    }  
+                    .event-list{
+                        .for-sm{
+                            @apply block text-blue-600;
+                        }
+                        .for-lg{
+                            @apply hidden; 
+                            @include eventTheme()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    .add-event-modal{
+        @apply fixed top-0 left-0 right-0 z-50 flex justify-center bg-black bg-opacity-70 
+        w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full;
+        &.hide{
+            display: none;
+        }
+        .theme-list{
+            @apply flex flex-col md:flex-row;
+            .theme-list-item{
+                @apply flex-1 mt-1 border-l border-r border-t last:border-b md:border-r-0 md:last:border-r md:border-b border-gray-500;
+
+                &.theme{
+                    @include eventTheme();
+                }
+            }
+        }
+        .notification-box{
+            ul{
+                @apply grid grid-cols-1 md:grid-cols-4 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white;
+                li{
+                    @apply w-full border-b border-gray-200 rounded-t-lg dark:border-gray-600;
+                }
+            }
+        }
+    }
+   
+}
+.day-model{
+    @apply z-10 fixed left-0 top-0 right-0 bottom-0 flex justify-center items-center;
+
+    &.hidden{
+        display: none;
+    }
+    
+   .modal-container{
+    @apply bg-gray-100 rounded-xl shadow-sm border overflow-y-hidden min-w-[300px];
+
+    .modal-header{
+        
+    }
+    .modal-body{
+        @apply min-h-[300px];
+        .list-box{
+            @apply w-full mt-5;
+            .list-item{
+                @apply relative w-full mt-1 px-1 md:px-4 py-2 md:py-4 flex space-x-3 md:space-x-5 items-center cursor-pointer border lg:border-none rounded hover:shadow-md hover:bg-slate-300 transition-colors;
+
+                .tooltip-box{
+                    @apply absolute z-20 w-full text-center  px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm  dark:bg-gray-700 top-0;
+                    transform: translateY(-100%);
+                    display: none;
+                }
+                &:hover{
+                    .tooltip-box{
+                    display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+    .modal-foooter{
+        @apply flex justify-end p-1;
+        .close-btn{
+            @apply px-4 py-1 bg-red-600 text-white flex items-center rounded-md;
+        }
+    }
+   } 
+}
+
+.month-card{
+    .close-btn{
+        @apply px-4 py-1 bg-red-600 text-white flex items-center rounded-md;
+    }
+    .month-card-header{
+
+    }
+    .month-card-body{
+        .group-card{
+            @apply border border-black shadow-lg mb-2 pt-2 rounded-md;
+          
+            .list-box{
+                @apply w-full;
+                .list-item{
+                    @apply relative w-full mt-1 px-1 md:px-4 py-2 md:py-4 flex space-x-3 md:space-x-5 items-center cursor-pointer border lg:border-none rounded hover:shadow-md hover:bg-slate-300 transition-colors;
+    
+                    .tooltip-box{
+                        @apply absolute z-10 w-full text-center  px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm  dark:bg-gray-700 top-0;
+                        transform: translateY(-100%);
+                        display: none;
+                    }
+                    &:hover{
+                        .tooltip-box{
+                        display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

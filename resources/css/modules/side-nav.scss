@@ -1,0 +1,137 @@
+aside.side-nav{
+    *::-webkit-scrollbar {
+        width: 10px;
+      }
+      
+      *::-webkit-scrollbar-track {
+    @apply bg-slate-500;
+        border-radius: 5px;
+      }
+      
+      *::-webkit-scrollbar-thumb {
+        @apply border-2 border-gray-200;
+        background: rgb(114 25 129);
+        border-radius: 14px;
+        
+      }
+
+    @apply min-h-screen fixed top-0 left-0 z-40 h-screen;
+
+    .mobile-overly{
+        @apply absolute left-0 top-0 right-0 bottom-0 bg-black bg-opacity-20;
+    }
+
+    .content{
+        @apply relative h-full px-3 py-4 overflow-y-auto bg-lime-50 dark:bg-gray-800 z-10;
+
+        ul.list{
+            @apply space-y-2 font-medium;
+            
+
+            >li{
+                >.drop-btn{
+                    @apply flex items-center w-full p-2  transition duration-75 rounded-lg hover:bg-[#cddc395c] dark:text-yellow-50;
+                    span{
+                        @apply flex-1 ml-3 text-left whitespace-nowrap dark:text-yellow-50;
+                    }
+                    >svg{
+                        @apply flex-shrink-0 w-6 h-6  transition duration-75 text-[#721981] dark:text-yellow-50;
+                    }
+                }
+        
+                >ul.dropdown{
+                    @apply bg-[#f5f8dc] dark:bg-black text-gray-900 dark:text-yellow-100 py-2;
+                    li{
+                        >a{
+                            @apply flex items-center w-full p-2  transition duration-75 rounded-lg pl-11;
+                        }
+                        &:hover{
+                            @apply bg-pink-50 dark:bg-slate-600;
+                        }
+                        &.title{
+                            @apply hidden;
+                        }
+                    }
+                }
+
+                &.active{
+                    >.drop-btn{
+                        @apply text-blue-600 dark:text-yellow-300;
+                        >svg{
+                            @apply text-blue-700 dark:text-yellow-300
+                        }
+                    }
+                    >ul{
+                        >li{
+                            &.active{
+                                @apply text-blue-500 dark:text-yellow-300;  
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+
+.mini aside.side-nav{
+    .content{
+        @apply bg-slate-500 px-0 overflow-visible;
+        ul.list{
+            @apply mx-0 px-0;
+            >li{
+               @apply relative my-0;
+               
+                .drop-btn{
+
+                   @apply relative bg-black rounded-none;
+                   >svg{
+                 @apply text-white dark:text-yellow-300 mx-auto;
+                   }
+                    .arrow-icon{
+                        @apply hidden;
+                    }
+                    
+                    .title{
+                        @apply p-2 bg-black text-white absolute left-full ml-0 hidden;
+                    }
+
+                    &:hover{
+                        .title{
+                            @apply block;
+                        }
+                    }
+                }
+                &.has-dropdown{
+                    .title{
+                        @apply hidden;
+                    }
+                    >ul.dropdown{
+                        @apply hidden  top-0 text-white absolute left-full w-auto px-2 bg-slate-200;
+                        li{
+                            @apply bg-slate-600 my-0;
+                            &.title{
+                                @apply block bg-black py-2 px-2;
+                            }
+                            >a{
+                                @apply block rounded-none whitespace-nowrap pl-4 hover:bg-stone-400;
+                            }
+                        }
+                        
+                      
+                    }
+                    &:hover{
+                        >ul.dropdown{
+                            @apply block;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,20 @@
+.student-profile{
+    .layout{
+        @apply grid grid-cols-3 gap-2 bg-white mt-4;
+
+        .profile-card{
+            @apply relative border-2 border-fuchsia-900 mt-[50px] p-4 pt-[55px];
+            .avatar{
+                @apply h-[100px] w-[100px] rounded-full border-2 border-fuchsia-900 absolute;
+                left:50%;
+                top: 0;
+                transform: translate(-50% ,-50%);
+            }
+        }
+
+        .course-info-card{
+            @apply relative border-2 border-fuchsia-900 md:mt-[50px] p-4;
+        }
+       
+    }
+}

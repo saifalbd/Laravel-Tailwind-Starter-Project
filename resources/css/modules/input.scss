@@ -1,0 +1,123 @@
+
+//@import '../../node_modules/vue-select/dist/vue-select.css';
+// import in main scss file
+.r{
+    &::after{
+        content: '**';
+        color: red;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+}
+@for $i from 1 through 12 {
+    .md-col-span-#{$i}{
+        @apply md:col-span-#{$i};
+    }
+  }
+
+
+
+.form-control{
+ 
+    @apply  border  rounded-sm  block w-full border-gray-300 text-gray-900  dark:bg-gray-700 focus:border-indigo-500  focus:ring-indigo-500
+    dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 py-1.5;
+
+    &[type='file']{
+        @apply p-0;
+    }
+}
+
+
+.v-select{
+   
+    .vs__selected-options {
+        .vs__selected {
+            @apply border border-fuchsia-600 bg-purple-700 text-yellow-100;
+            button {
+                fill: rosybrown !important;
+            }
+        }
+    }
+
+
+    >.vs__dropdown-toggle{
+        @apply dark:bg-slate-700; 
+    }
+   @apply bg-black;
+    .vs__search{
+        padding: 2px 0;
+        border: none !important;
+        outline: none !important;
+        @apply dark:bg-slate-700; 
+        &:focus{
+            border: none !important;
+        outline: none !important;
+        @apply ring-0;  
+        }
+
+       
+    }
+    .vs__dropdown-menu{
+        @apply dark:bg-slate-700; 
+    }
+
+    &.vs--open{
+        @apply border rounded-sm border-indigo-500 ring-indigo-500
+     }
+}
+
+
+.form-control.is-invalid,.multiselect.is-invalid{
+    @apply border-2 border-red-600 focus:border-blue-400;
+}
+
+
+
+.form-group{
+    label {
+        @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white capitalize;
+    }
+    .invalid-feedback{
+        @apply text-red-800 text-sm px-3;
+    }
+
+    .quil-box{
+        @apply pb-8;
+        input{
+            @apply hidden;
+        }
+        .ql-toolbar.ql-snow + .ql-container.ql-snow{
+            @apply min-h-[160px];
+        }
+        &.isInvalid{
+            .ql-toolbar.ql-snow{
+                @apply border-rose-600;
+            }
+            .ql-container.ql-snow{
+                @apply border-rose-600;
+            }
+        }
+    }
+
+}
+
+
+.input-group {
+    @apply relative w-full flex  border border-gray-300 text-gray-900 p-0.5 min-h-[38px];
+    .prefix {
+        @apply whitespace-nowrap flex-1 relative  bg-slate-200 text-lg font-semibold  flex justify-end items-center px-2;
+    }
+    .form-control {
+      
+        @apply py-0.5 flex-auto w-full border-none focus:border-none focus:outline-none focus:shadow-none focus:ring-0;
+    }
+
+    &.focused{
+        @apply border-indigo-500  ring-indigo-200 ring-2  dark:text-white dark:ring-blue-500 dark:border-blue-500;
+    }
+
+    &.isInvalid{
+        @apply border-rose-600;
+    }
+    
+}

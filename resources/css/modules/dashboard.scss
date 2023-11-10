@@ -1,0 +1,120 @@
+.dashboard{
+    .search-student{
+        @apply flex justify-end my-2;
+        form{
+            @apply min-w-full  md:min-w-[500px];
+        }
+
+    }
+    .sort-cut{
+        ul{
+            @apply flex flex-wrap;
+            li{
+                @apply relative p-2;
+                a{
+                    @apply relative px-5 py-2 font-medium text-white;
+                    >span{
+                        svg{
+                            @apply h-5 w-5 fill-current;
+                        }
+                       
+                        &:nth-child(1){
+                            @apply absolute inset-0 w-full h-full transition-all duration-300 ease-out transform translate-x-0 -skew-x-12 bg-purple-500 dark:bg-slate-600 group-hover:bg-purple-700 group-hover:skew-x-12;
+                        }
+                        &:nth-child(2){
+                            @apply absolute inset-0 w-full h-full transition-all duration-300 ease-out transform skew-x-12 bg-purple-700 dark:bg-slate-600 group-hover:bg-purple-500 group-hover:-skew-x-12;
+                        }
+                        &:nth-child(3){
+                            @apply absolute bottom-0 left-0 hidden w-10 h-20 transition-all duration-100 ease-out transform -translate-x-8 translate-y-10 bg-purple-600 dark:bg-slate-600 -rotate-12;
+                        }
+                        &:nth-child(4){
+                            @apply absolute bottom-0 right-0 hidden w-10 h-20 transition-all duration-100 ease-out transform translate-x-10 translate-y-8 bg-purple-400 dark:bg-slate-600 -rotate-12;
+                        }
+                        &:nth-child(5){
+                            @apply relative inline-flex items-center;
+                            
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .report-cards {
+        >ul{
+            @apply grid grid-cols-2 lg:grid-cols-3 gap-2;
+            >li.card-item{
+                @apply relative;
+                .item-inner{
+                    @apply w-full aspect-[2] relative z-0;
+                    .box-layout{
+                        @apply absolute left-0 lg:left-2 top-0 right-0 lg:right-2 bottom-0;
+                        .box{
+                            @apply absolute left-0 top-0 right-0 bottom-0 border-fuchsia-900;
+                            &.one{
+                                @apply lg:transform lg:skew-x-6 bg-purple-500 dark:bg-slate-700;
+                            }
+                            &.two{
+                                @apply lg:transform lg:-skew-x-6 bg-purple-700 dark:bg-slate-700;
+                            }
+                        }
+                    }
+                    .info{
+                        @apply relative min-h-full p-4 z-10 flex flex-col items-center justify-between text-yellow-50;
+                       
+                        .drop-box{
+                            @apply absolute right-3 top-3;
+                            .triger-btn{
+                                @apply px-2 py-0.5 uppercase border text-sm font-mono;
+                            }
+                            ul{
+                                @apply flex flex-col;
+                                li{
+                                    
+                                }
+                            }
+                        }
+                        .svg-box{
+                            @apply mt-4;
+                            svg{
+                                @apply w-14 h-14 fill-current;
+                            }
+                        }
+                        .title{
+                            @apply text-xl font-mono font-bold;
+                        }
+                        .value{
+                            @apply text-2xl font-mono font-bold;
+                        }
+                       
+                    }
+                   
+                }
+                &:hover{
+                    @apply z-50;
+                }
+            }
+        }
+    }
+
+    .analysis{
+        @apply grid grid-cols-1 lg:grid-cols-2 gap-2;
+        .triger-btn{
+            @apply px-2 py-1 uppercase border text-sm font-mono dark:text-white;
+        }
+
+        .chart-card{
+            @apply aspect-[2] bg-white rounded-lg shadow dark:bg-gray-800 p-2 dark:text-black;
+            .total-card{
+                
+                h5{
+                    @apply inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2;
+                    svg{
+                        @apply w-3 h-3 text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ml-1;
+                    }
+                }
+            }
+        }
+    }
+}

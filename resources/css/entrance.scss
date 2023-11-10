@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.login-box{
+    @apply md:min-w-[800px]  border-2 border-green-700 grid grid-cols-1 md:grid-cols-[300px_auto];
+    .left{
+        @apply border-r-2 border-green-700 hidden md:block;
+    }
+    .right{
+        @apply p-4 py-10 font-mono;
+
+        .avatar-box{
+            @apply my-4 w-full flex justify-center;
+        img{
+            @apply h-[80px];  
+        }
+        }
+
+        .form-group{
+            @apply flex flex-col;
+            .input-group{
+                @apply w-full relative;
+
+                .eye-btn{
+                    @apply absolute right-1 top-1/2 -translate-y-1/2 ;
+                    svg{
+                        @apply h-5 w-5;
+                        
+                    }
+                }
+                input{
+                    @apply pr-8;
+                }
+            }
+            input{
+                @apply w-full border-2 rounded-md;
+            }
+           
+        }
+
+        .btn{
+            @apply flex items-center px-20 py-2 bg-green-700 hover:bg-yellow-700 text-yellow-50;
+        }
+
+        .group-btn{
+            @apply text-sm flex items-center mx-1 px-2 py-1 bg-green-50 text-black hover:bg-yellow-700 hover:text-yellow-50 hover:shadow-lg; 
+        }
+    }
+}
